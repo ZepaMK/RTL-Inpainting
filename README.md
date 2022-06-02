@@ -15,6 +15,9 @@ This pipeline is finished in ~2-5 seconds.
 ## YOLOv5x
 We used [YOLOv5x](https://github.com/ultralytics/yolov5) for the text detection. This was trained on 200 Videoland thumbnails that we labeled ourselves. This will be between the 500 and 700 when we receive our labeled images from RTL.
 
+## How does YOLO work?
+YOLO means You Only Look Once. When you feed data to a network it will break it up into a grid in the convolutional layer. Here it will check every grid piece and check if there is an object that it knows in that piece. If so it remembers it and it proceeds. When it look at all the positions it has a lot of intersecting bounding boxes for the same object. To fix this it wil use the an formula to get the best bounding box (intersection over union = intersect area/union area).
+
 ## Lama
 We used [LaMa](https://github.com/saic-mdal/lama) for the image inpainting. We've chosen a pretrained LaMa model that can be found [here](https://disk.yandex.ru/d/EgqaSnLohjuzAg). This is a collection of the celeb, places and other miscellaneous datasets.
 
