@@ -7,10 +7,10 @@ input_dir=$(pwd)/imgs
 output_dir=$(pwd)/output
 
 cd $yolo_dir
-python3 detect.py --weights runs/train/exp10/weights/best.pt --source $input_dir --hide-labels --hide-conf --exist-ok --save-txt
+python3 detect.py --weights runs/train/exp10/weights/best.pt --source $input_dir --hide-labels --hide-conf --exist-ok --save-txt --nosave
 
 cd $start_dir
-python3 mask.py $input_dir
+python3 mask.py $input_dir $input_dir
 
 cd $lama_dir
 export TORCH_HOME=$(pwd) && export PYTHONPATH=.
