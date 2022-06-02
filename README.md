@@ -8,13 +8,22 @@ The way we made the pipeline is as follows:
 
 ![image](https://user-images.githubusercontent.com/39794751/171628172-a8de46ff-2e0b-4f8e-b55a-39c4bf22460e.png)
 
-This pipeline is finished in ~5 seconds. 
+This pipeline is finished in ~2-5 seconds. 
 
 
 # How to use
 ....
 
 ## Models
-We used [YOLOv5x](https://github.com/ultralytics/yolov5) for the text detection. This was trained on 200 RTL thumbnail that we labeled our self. This will be between the 500 and 700 when we receive our labeled images from rtl.
 
-We used [LaMa](https://github.com/saic-mdal/lama) for the image inpainting. We've chosen a pretrained model of laMas that can be found [here](https://disk.yandex.ru/d/EgqaSnLohjuzAg). This is a collection of the celeb, places and other miscellaneous datasets.
+### YOLOv5x
+We used [YOLOv5x](https://github.com/ultralytics/yolov5) for the text detection. This was trained on 200 Videoland thumbnails that we labeled ourselves. This will be between the 500 and 700 when we receive our labeled images from RTL.
+
+### Lama
+We used [LaMa](https://github.com/saic-mdal/lama) for the image inpainting. We've chosen a pretrained LaMa model that can be found [here](https://disk.yandex.ru/d/EgqaSnLohjuzAg). This is a collection of the celeb, places and other miscellaneous datasets.
+
+#### How does LaMa work?
+De LaMa network needs two kinds of input, namely am image and a mask that indicates which part of the image needs to be painted in. Now lets seperate the inpaiting netwerk in steps:
+1. The netwerk downscales the image so that the network has less pixels to work with. This helps with the efficiency of the network. But don't worry the LaMa technique will make sure the quality of the image will be the same as a high resolution image.
+
+
