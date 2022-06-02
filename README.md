@@ -29,4 +29,8 @@ De LaMa network needs two kinds of input, namely am image and a mask that indica
 # How to use
 ....
 
+# Refrences
 
+- https://github.com/saic-mdal/lama
+- https://www.louisbouchard.ai/lama/
+- https://github.com/ultralytics/yolov5
