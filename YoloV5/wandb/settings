@@ -1,0 +1,5 @@
+[default]
+entity = rtl_hva_ai
+project = labeling
+base_url = https://api.wandb.ai
+
