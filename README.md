@@ -19,7 +19,7 @@ We used [YOLOv5x](https://github.com/ultralytics/yolov5) for the text detection.
 YOLO means You Only Look Once. When you feed data to a network it will break it up into a grid in the convolutional layer. Here it will check every grid piece and check if there is an object that it knows in that piece. If so it remembers it and it proceeds. When it look at all the positions it has a lot of intersecting bounding boxes for the same object. To fix this it wil use the an formula to get the best bounding box (intersection over union = intersect area/union area).
 
 ## Lama
-We used [LaMa](https://github.com/saic-mdal/lama) for the image inpainting. We've chosen a pretrained LaMa model that can be found [here](https://disk.yandex.ru/d/EgqaSnLohjuzAg). This is a collection of the celeb, places and other miscellaneous datasets.
+We used [LaMa](https://github.com/saic-mdal/lama) for the image inpainting. We've chosen a pretrained LaMa model (big-lama) that can be found [here](https://disk.yandex.ru/d/EgqaSnLohjuzAg). This is a collection of the CelebA-HQ and Places datasets.
 
 ### How does LaMa work?
 De LaMa network needs two kinds of input, namely am image and a mask that indicates which part of the image needs to be painted in. Now lets seperate the inpaiting netwerk in steps:
