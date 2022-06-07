@@ -8,7 +8,7 @@ The way we made the pipeline is as follows:
 
 ![image](https://user-images.githubusercontent.com/39794751/171628172-a8de46ff-2e0b-4f8e-b55a-39c4bf22460e.png)
 
-This pipeline is finished in ~2-5 seconds. 
+Processing an image through this pipeline takes ~2-5 seconds. 
 
 # Models
 
@@ -22,8 +22,8 @@ YOLO means You Only Look Once. When you feed data to a network it will break it 
 We used [LaMa](https://github.com/saic-mdal/lama) for the image inpainting. We've chosen a pretrained LaMa model (big-lama) that can be found [here](https://disk.yandex.ru/d/EgqaSnLohjuzAg). This is a collection of the CelebA-HQ and Places datasets.
 
 ### How does LaMa work?
-De LaMa network needs two kinds of input, namely am image and a mask that indicates which part of the image needs to be painted in. Now lets seperate the inpaiting netwerk in steps:
-1. The netwerk downscales the image so that the network has less pixels to work with. This helps with the efficiency of the network. But don't worry the LaMa technique will make sure the quality of the image will be the same as a high resolution image.
+The LaMa network needs two kinds of input, namely am image and a mask that indicates which part of the image needs to be painted in. Now lets seperate the inpaiting network in steps:
+1. The network downscales the image so that the network has less pixels to work with. This helps with the efficiency of the network. But don't worry the LaMa technique will make sure the quality of the image will be the same as a high resolution image.
 2. Most inpainting networks use normal CNN's to compress the image and safe only relevant information like the shape, color and overall style, but not precise details. With this information the model reconstructs the image. The only problem with CNN's is that we use it on downscaled images (low quality images), so when we upscale we will hurt the quality of the image. To prevent this from happening, LaMa uses a Fast Fourier Convolutional Residual Block (FFC) instead of a Convolutional Neural Network (CNN).
 
 # How to use
@@ -35,7 +35,7 @@ The second way is to place an input image in the `input` folder, run the project
 To run the project again all folders used to store images have to be cleared, otherwise images of previous runs get used. To clear all image folders simply call `cleanup.sh`. This removes all images except those in the input folder.  
 To remove all images including those in the input folder, call the cleanup script with the `-a` argument (`cleanup.sh -a`).
 
-# Refrences
+# References
 
 - https://github.com/saic-mdal/lama
 - https://www.louisbouchard.ai/lama/
