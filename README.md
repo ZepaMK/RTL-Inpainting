@@ -18,6 +18,9 @@ We used [YOLOv5x](https://github.com/ultralytics/yolov5) for the text detection.
 ## How does YOLO work?
 YOLO means You Only Look Once. When you feed data to a network it will break it up into a grid in the convolutional layer. Here it will check every grid piece and check if there is an object that it knows in that piece. If so it remembers it and it proceeds. When it look at all the positions it has a lot of intersecting bounding boxes for the same object. To fix this it wil use the an formula to get the best bounding box (intersection over union = intersect area/union area).
 
+## Mask generating
+After YOLO predicts where the text is located on an image, our code will make a mask that highlights the text on that picture. YOLO will return coordinates of where the text is and our system will create a new picture that has a black background and white rectangles over those coordinates. This mask can be used by LaMa to highlight which parts should be removed and inpainted. 
+
 ## Lama
 We used [LaMa](https://github.com/saic-mdal/lama) for the image inpainting. We've chosen a pretrained LaMa model (big-lama) that can be found [here](https://disk.yandex.ru/d/EgqaSnLohjuzAg). This is a collection of the CelebA-HQ and Places datasets.
 
