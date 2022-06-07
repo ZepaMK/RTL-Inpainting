@@ -27,7 +27,13 @@ De LaMa network needs two kinds of input, namely am image and a mask that indica
 2. Most inpainting networks use normal CNN's to compress the image and safe only relevant information like the shape, color and overall style, but not precise details. With this information the model reconstructs the image. The only problem with CNN's is that we use it on downscaled images (low quality images), so when we upscale we will hurt the quality of the image. To prevent this from happening, LaMa uses a Fast Fourier Convolutional Residual Block (FFC) instead of a Convolutional Neural Network (CNN).
 
 # How to use
-....
+## Running the project
+Our project can be used in 2 different ways. The first way is to place an input image in the `input` folder, run the project by calling `run.sh`, and receive the output image.  
+The second way is to place an input image in the `input` folder, run the project by calling `run_display.sh`, and receive an output which includes images of each step of the process (located in the `steps` folder). This provides an overview of what exactly is happening.
+
+## Cleaning up
+To run the project again all folders used to store images have to be cleared, otherwise images of previous runs get used. To clear all image folders simply call `cleanup.sh`. This removes all images except those in the input folder.  
+To remove all images including those in the input folder, call the cleanup script with the `-a` argument (`cleanup.sh -a`).
 
 # Refrences
 
