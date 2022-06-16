@@ -25,6 +25,12 @@ def yolo_to_pixel(yolo_x1, yolo_y1, yolo_x2, yolo_y2, img_width, img_height):
         pixel_y1 = 0
     if pixel_y2 > img_height - 1:
         pixel_y2 = img_height - 1
+    
+    # Extend the mask by 4 pixels on each side to account for small errors in detection
+    pixel_x1 -= 4
+    pixel_y1 -= 4
+    pixel_x2 += 4
+    pixel_y2 += 4
 
     return (pixel_x1, pixel_y1), (pixel_x2, pixel_y2)
 
