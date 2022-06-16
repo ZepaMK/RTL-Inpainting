@@ -40,6 +40,15 @@ The second way is to place an input image in the `input` folder, run the project
 To run the project again all folders used to store images have to be cleared, otherwise images of previous runs get used. To clear all image folders simply call `cleanup.sh`. This removes all images except those in the input folder.  
 To remove all images including those in the input folder, call the cleanup script with the `-a` argument (`cleanup.sh -a`).
 
+## Training YoloV5
+To train YoloV5 you need a dataset with labeled images in the Yolo format. For image labeling we used [CVAT](https://github.com/openvinotoolkit/cvat). Put your labeled images in a folder (we recommend `YoloV5/dataset`). To start training enter the following commands:
+```
+cd YoloV5/yolov5
+
+python3 train.py --batch 16 --epochs 1000 --data your_dataset_folder/yaml_file.yaml --weights yolov5x.pt
+```
+We used a batch size of 16 and 1000 epochs on the yolov5x model. For a more comprehensive explanation of YoloV5 checkout their [Github page](https://github.com/ultralytics/yolov5).
+
 # References
 
 - https://github.com/saic-mdal/lama
