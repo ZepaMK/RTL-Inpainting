@@ -9,20 +9,14 @@ mask=$(pwd)/input_mask
 yolo_mask=$(pwd)/YoloV5/yolov5/runs/detect/exp
 display_dir=$(pwd)/steps
 
-# Copy input files to display dir and give suffix _a
-#cp -a $input_dir/. $display_dir
-#cd $display_dir
-#for file in *.png; do mv "$file" "${file%.png}_a.png"; done
-
-
 cd $yolo_dir
-python3 detect.py --weights runs/train/exp10/weights/best.pt --source $input_dir --hide-labels --hide-conf --exist-ok --save-txt
+python3 detect.py --weights runs/train/exp29/weights/best.pt --source $input_dir --hide-labels --hide-conf --exist-ok --save-txt
 
 # Copy masks
 cp -a $input_dir/. $mask
+cp -a $input_dir/. $display_dir
 cd $start_dir
 python3 mask.py $input_dir $mask
-cp -a $mask/. $display_dir
 
 # Rename yolo files and copy to display dir
 cd $yolo_mask
