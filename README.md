@@ -32,6 +32,22 @@ The LaMa network needs two kinds of input, namely an image and a mask that indic
 4. Both local and global information are saved and sent to the next layer which will repeat this steps. The final image can be upscaled back since we use frequencies instead of colors and frequencies will be the same whatever the size of the image.
 
 # How to use
+## Installation
+***IMPORTANT!***  
+This project currently only supports Python 3.8.x on Linux.
+
+Clone the repo: `git clone https://github.com/ZepaMK/RTL-Inpainting.git`  
+
+Create a virtual environment and install all the dependencies:
+```bash
+cd RTL-Inpainting
+
+python3.8 -m venv venv/
+source venv/bin/activate
+
+pip install -r requirements.txt
+```
+
 ## Running the project
 Our project can be used in 2 different ways. The first way is to place an input image in the `input` folder, run the project by calling `run.sh`, and receive the output image.  
 The second way is to place an input image in the `input` folder, run the project by calling `run_display.sh`, and receive an output which includes images of each step of the process (located in the `steps` folder). This provides an overview of what exactly is happening.
